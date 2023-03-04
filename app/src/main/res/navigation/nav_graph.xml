@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        tools:layout="@layout/search_screen"
+        android:name="uz.gita.glossary.ui.HomeScreen"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_wordInfoScreen"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        tools:layout="@layout/history_screen"
+        android:name="uz.gita.glossary.ui.HistoryScreen"
+        android:label="HistoryFragment" >
+        <action
+            android:id="@+id/action_historyFragment_to_bookmarkFragment"
+            app:destination="@id/bookmarkFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_wordInfoScreen"
+            />
+    </fragment>
+    <fragment
+        tools:layout="@layout/bookmark_screen"
+        android:id="@+id/bookmarkFragment"
+        android:name="uz.gita.glossary.ui.BookmarkScreen"
+        android:label="BookmarkFragment" >
+        <action
+            android:id="@+id/action_bookmarkFragment_to_wordInfoScreen"
+            />
+    </fragment>
+
+</navigation>
