@@ -62,6 +62,7 @@
             <ImageView
                 android:layout_width="17dp"
                 android:layout_height="17dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:id="@+id/sync_img"
                 android:src="@drawable/synchronization_1" />
         </LinearLayout>
