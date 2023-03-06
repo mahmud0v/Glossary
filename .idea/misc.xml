@@ -5,13 +5,14 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/bot_nav_icon_color.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/bot_nav_icon_color.xml" value="0.127" />
+        <entry key="app/src/main/res/drawable/full_star.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.127" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26875" />
-        <entry key="app/src/main/res/layout/bookmark_screen.xml" value="0.2828125" />
+        <entry key="app/src/main/res/layout/bookmark_screen.xml" value="0.2360655737704918" />
         <entry key="app/src/main/res/layout/dashboard_screen.xml" value="0.24094202898550723" />
         <entry key="app/src/main/res/layout/history_screen.xml" value="0.24094202898550723" />
         <entry key="app/src/main/res/layout/recycler_view_item.xml" value="0.2828125" />
-        <entry key="app/src/main/res/layout/search_screen.xml" value="0.2828125" />
+        <entry key="app/src/main/res/layout/search_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/word_info_dialog.xml" value="0.24094202898550723" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2828125" />
       </map>

@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import uz.gita.glossary.R
 import uz.gita.glossary.model.Word
 
-class WordRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class WordRecyclerAdapter(private val firstLanguage: String) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var onItemClick: ((Word) -> Unit)? = null
     private val diffItemCallback = object : DiffUtil.ItemCallback<Word>() {
@@ -38,10 +39,18 @@ class WordRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val data = differ.currentList[position]
-        val textView1: TextView = holder.itemView.findViewById(R.id.rv_item_text1)
-        val textView2: TextView = holder.itemView.findViewById(R.id.rv_item_text2)
-        textView1.text = data.engWord
-        textView2.text = data.transcript
+        if (firstLanguage == "English") {
+            val textView1: TextView = holder.itemView.findViewById(R.id.rv_item_text1)
+            val textView2: TextView = holder.itemView.findViewById(R.id.rv_item_text2)
+            textView1.text = data.engWord
+            textView2.text = data.transcript
+        } else {
+            val textView1: TextView = holder.itemView.findViewById(R.id.rv_item_text1)
+            val textView2: TextView = holder.itemView.findViewById(R.id.rv_item_text2)
+            textView1.text = data.translation
+            textView2.text = data.engWord
+        }
+
         holder.itemView.setOnClickListener {
             onItemClick?.invoke(data)
         }

@@ -1,10 +1,12 @@
 package uz.gita.glossary.model
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
-
+@Parcelize
 @Entity(tableName = "eng_uz")
 data class Word(
     @PrimaryKey
@@ -16,7 +18,7 @@ data class Word(
     val transcript: String?,
     val translation: String?,
     val description: String?,
-    val countable: String?,
-    val favourite: Int?
+    var countable: String?,
+    var favourite: Int?
 
-)
+) : Parcelable

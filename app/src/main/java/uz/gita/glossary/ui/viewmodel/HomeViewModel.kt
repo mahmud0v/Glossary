@@ -1,6 +1,7 @@
 package uz.gita.glossary.ui.viewmodel
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,8 +20,9 @@ class HomeViewModel @Inject constructor(
     private var allWordsMutableLiveData = MutableLiveData<List<Word>>()
     val allWordsLiveData = allWordsMutableLiveData
 
-    private var engWordMutableLiveData = MutableLiveData<Word>()
-    val engWordLiveData = engWordMutableLiveData
+
+    private var findWordMutableLiveData = MutableLiveData<List<Word>>()
+    val findWordLiveData: LiveData<List<Word>> = findWordMutableLiveData
 
     init {
         getAllWords()
@@ -29,16 +31,25 @@ class HomeViewModel @Inject constructor(
     private fun getAllWords() = viewModelScope.launch {
         databaseRepository.getAllWords().collect {
             allWordsMutableLiveData.value = it
-            Log.d("TTT","${it.size}")
+            Log.d("TTT", "${it.size}")
         }
     }
 
-    fun getEngWord(engWord: String) = viewModelScope.launch {
+    fun findEngWord(engWord: String) = viewModelScope.launch {
         databaseRepository.getEngWord(engWord).collect {
-            engWordMutableLiveData.value = it
+            findWordMutableLiveData.value = it
         }
     }
 
+    fun updateWord(word: Word) = viewModelScope.launch {
+        databaseRepository.updateWord(word)
+    }
 
+
+    fun getUzbWord(uzbWord: String) = viewModelScope.launch {
+        databaseRepository.getUzbWord(uzbWord).collect {
+            allWordsMutableLiveData.value = it
+        }
+    }
 
 }

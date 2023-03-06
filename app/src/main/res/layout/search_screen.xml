@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"
             android:background="@drawable/language_layout"
@@ -36,6 +36,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:id="@+id/left_side_icon"
                 android:layout_marginStart="20dp"
                 android:src="@drawable/united_kingdom" />
 
@@ -45,6 +46,7 @@
                 android:layout_marginEnd="20dp"
                 android:fontFamily="@font/zilla_slab_medium"
                 android:paddingStart="10dp"
+                android:id="@+id/left_side_text"
                 android:text="English"
                 android:textColor="#F0F1F1"
                 android:textSize="20sp" />
@@ -60,11 +62,12 @@
             <ImageView
                 android:layout_width="17dp"
                 android:layout_height="17dp"
+                android:id="@+id/sync_img"
                 android:src="@drawable/synchronization_1" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
@@ -75,6 +78,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:id="@+id/right_side_icon"
                 android:layout_marginLeft="20dp"
                 android:src="@drawable/uzbekistan" />
 
@@ -84,7 +88,8 @@
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/zilla_slab_medium"
                 android:paddingLeft="10dp"
-                android:text="Uzbek"
+                android:text="Uzbek "
+                android:id="@+id/right_side_text"
                 android:textColor="#F0F1F1"
                 android:textSize="20sp" />
         </LinearLayout>
