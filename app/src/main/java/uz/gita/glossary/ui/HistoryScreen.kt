@@ -12,6 +12,7 @@ import uz.gita.glossary.R
 import uz.gita.glossary.adapter.WordRecyclerAdapter
 import uz.gita.glossary.databinding.HistoryScreenBinding
 import uz.gita.glossary.ui.viewmodel.HistoryViewModel
+import uz.gita.glossary.utils.hideKeyboard
 import uz.gita.vocabulary.ui.dialog.WordInfoDialog
 
 @AndroidEntryPoint
@@ -37,6 +38,7 @@ class HistoryScreen : Fragment(R.layout.history_screen) {
 
     private fun clickItem() {
         adapter?.onItemClick = {
+            hideKeyboard()
             val dialog = WordInfoDialog()
             val bundle = Bundle().apply {
                 putParcelable("key", it)

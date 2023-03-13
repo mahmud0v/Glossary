@@ -1,10 +1,12 @@
 package uz.gita.glossary.ui
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -14,11 +16,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import org.w3c.dom.Text
 import uz.gita.glossary.R
 import uz.gita.glossary.adapter.WordRecyclerAdapter
 import uz.gita.glossary.databinding.SearchScreenBinding
 import uz.gita.glossary.model.Word
 import uz.gita.glossary.ui.viewmodel.HomeViewModel
+import uz.gita.glossary.utils.hideKeyboard
 import uz.gita.vocabulary.ui.dialog.WordInfoDialog
 
 @AndroidEntryPoint
@@ -34,6 +38,7 @@ class HomeScreen : Fragment(R.layout.search_screen) {
     }
 
     private fun initRecycler() {
+        Toast.makeText(requireContext(),binding.leftSideText.text.toString(),Toast.LENGTH_SHORT).show()
         adapter = WordRecyclerAdapter(binding.leftSideText.text.toString())
         viewModel.allWordsLiveData.observe(viewLifecycleOwner, Observer {
             wordsObserver(it)
@@ -44,6 +49,7 @@ class HomeScreen : Fragment(R.layout.search_screen) {
 
     private fun clickWordItem(adapter: WordRecyclerAdapter) {
         adapter?.onItemClick = {
+            hideKeyboard()
             val dialog = WordInfoDialog()
             val bundle = Bundle().apply {
                 putParcelable("key", it)

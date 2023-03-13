@@ -13,6 +13,7 @@ import uz.gita.glossary.R
 import uz.gita.glossary.adapter.WordRecyclerAdapter
 import uz.gita.glossary.databinding.BookmarkScreenBinding
 import uz.gita.glossary.ui.viewmodel.BookmarkViewModel
+import uz.gita.glossary.utils.hideKeyboard
 import uz.gita.vocabulary.ui.dialog.WordInfoDialog
 
 @AndroidEntryPoint
@@ -40,6 +41,7 @@ class BookmarkScreen : Fragment(R.layout.bookmark_screen) {
 
     private fun clickItem() {
         adapter!!.onItemClick = {
+            hideKeyboard()
             val dialog = WordInfoDialog()
             val bundle = Bundle().apply {
                 putParcelable("key", it)
